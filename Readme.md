@@ -10,13 +10,15 @@ This repository provides AppleScript that could convert doc/ppt to pdf using aut
 
 选择“运行AppleScript”，复制对应的AppleScript，运行。
 
-
+运行时需要提供访问权限。
 
 Open Automator on OS X, choosing a new workflow.
 
 Choosing "Get Finder items", add files. ("Filter Finder items" can help filter given file format, like doc/docx/ppt/pptx)
 
 Choosing "Run AppleScript", and copy the script file content to the window, run it.
+
+You need allow access permission while running.
 
 ### Thanks
 
