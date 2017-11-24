@@ -12,8 +12,6 @@ on run {input, parameters}
 			set end of theOutput to pdfPath as alias
 		end repeat
 		set start up dialog to theDial
-	end tell
-	tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
 		quit
 	end tell
 	return theOutput
