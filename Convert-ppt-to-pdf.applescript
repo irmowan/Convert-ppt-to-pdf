@@ -5,11 +5,9 @@ on run {input, parameters}
 		if t ends with ".ppt" or ".pptx" then
 			set pdfPath to my makeNewPath(i)
 			tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
+				launch
 				open i
-				set theDial to start up dialog
-				set start up dialog to false
 				save active presentation in pdfPath as save as PDF -- save in same folder
-				set start up dialog to theDial
 				quit
 				set end of theOutput to pdfPath as alias
 			end tell
