@@ -1,18 +1,20 @@
 on run {input, parameters}
 	set theOutput to {}
-	repeat with i in input
-		set t to i as string
-		if t ends with ".ppt" or ".pptx" then
-			set pdfPath to my makeNewPath(i)
-			tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
-				launch
+	tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
+		launch
+		repeat with i in input
+			set t to i as string
+			if t ends with ".ppt" or t ends with ".pptx" then
+				set pdfPath to my makeNewPath(i)
 				open i
 				save active presentation in pdfPath as save as PDF -- save in same folder
-				quit
 				set end of theOutput to pdfPath as alias
-			end tell
-		end if
-	end repeat
+			end if
+		end repeat
+	end tell
+	tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
+		quit
+	end tell
 	return theOutput
 end run
 
