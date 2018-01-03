@@ -2,16 +2,18 @@ on run {input, parameters}
 	set theOutput to {}
 	tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
 		launch
-		set theDial to start up dialog
-		set start up dialog to false
 		repeat with i in input
-			open i
-			set pdfPath to my makeNewPath(i)
-			save active presentation in pdfPath as save as PDF -- save in same folder
-			close active presentation saving no
-			set end of theOutput to pdfPath as alias
+			set t to i as string
+			if t ends with ".ppt" or t ends with ".pptx" then
+				set pdfPath to my makeNewPath(i)
+				open i
+				save active presentation in pdfPath as save as PDF -- save in same folder
+				set end of theOutput to pdfPath as alias
+			end if
 		end repeat
-		set start up dialog to theDial
+	end tell
+	tell application "Microsoft PowerPoint" -- work on version 15.15 or newer
+		quit
 	end tell
 	return theOutput
 end run
